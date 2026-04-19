@@ -12,6 +12,12 @@ export type InviteResponse = {
   guests: Guest[];
 };
 
+export type InviteSearchResult = {
+  type: "single" | "multiple";
+  invite?: InviteResponse;
+  matches?: Array<{ inviteId: string; inviteName: string; group: string }>;
+};
+
 export type AttendanceOptions = {
   ceremony: boolean;
   hotelSaturday: boolean;

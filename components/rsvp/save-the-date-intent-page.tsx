@@ -3,24 +3,31 @@
 import { useState, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SearchSection } from "./search-section";
+import { DisambiguationSection } from "./disambiguation-section";
 import { GuestSelectionSection } from "./guest-selection-section";
 import { AttendanceSection } from "./attendance-section";
 import { SummarySection } from "./summary-section";
 import { ConfirmationSection } from "./confirmation-section";
-import { searchInvite } from "@/services/invite-service";
+import { searchInvite, getInviteById } from "@/services/invite-service";
 import { submitAttendanceIntent } from "@/services/attendance-service";
 import {
   applyAttendanceRules,
   hasAnyAttendanceOption,
   getInitialAttendanceOptions,
 } from "@/utils/attendance-rules";
-import type { InviteResponse, AttendanceOptions } from "@/types/invite";
+import type { InviteResponse, InviteSearchResult, AttendanceOptions } from "@/types/invite";
 
 export function SaveTheDateIntentPage() {
   // Estado da busca
   const [isSearching, setIsSearching] = useState(false);
   const [searchError, setSearchError] = useState<string | null>(null);
   const [invite, setInvite] = useState<InviteResponse | null>(null);
+  const [originalQuery, setOriginalQuery] = useState("");
+
+  // Estado de desambiguacao (multiplos matches)
+  const [multipleMatches, setMultipleMatches] = useState<
+    Array<{ inviteId: string; inviteName: string; group: string }> | null
+  >(null);
 
   // Estado da selecao de convidados
   const [selectedGuestIds, setSelectedGuestIds] = useState<string[]>([]);
@@ -37,28 +44,68 @@ export function SaveTheDateIntentPage() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Reseta todos os estados para nova busca
+  const resetState = useCallback(() => {
+    setInvite(null);
+    setMultipleMatches(null);
+    setSelectedGuestIds([]);
+    setAttendanceOptions(getInitialAttendanceOptions());
+    setGuestError(null);
+    setAttendanceError(null);
+    setSubmitError(null);
+  }, []);
+
   // Handler de busca
   const handleSearch = useCallback(async (query: string) => {
     setIsSearching(true);
     setSearchError(null);
-    setInvite(null);
-    setSelectedGuestIds([]);
-    setAttendanceOptions(getInitialAttendanceOptions());
+    setOriginalQuery(query);
+    resetState();
 
     try {
-      const result = await searchInvite(query);
-      if (result) {
-        setInvite(result);
-      } else {
+      const result: InviteSearchResult | null = await searchInvite(query);
+      
+      if (!result) {
         setSearchError(
           "Nao encontramos um convite com esses dados. Confira o nome ou telefone informado."
         );
+        return;
+      }
+      
+      if (result.type === "single" && result.invite) {
+        setInvite(result.invite);
+      } else if (result.type === "multiple" && result.matches) {
+        setMultipleMatches(result.matches);
       }
     } catch {
       setSearchError("Ocorreu um erro ao buscar. Tente novamente.");
     } finally {
       setIsSearching(false);
     }
+  }, [resetState]);
+
+  // Handler para selecionar convite da lista de desambiguacao
+  const handleSelectInvite = useCallback(async (inviteId: string) => {
+    setIsSearching(true);
+    setMultipleMatches(null);
+
+    try {
+      const result = await getInviteById(inviteId);
+      if (result) {
+        setInvite(result);
+      } else {
+        setSearchError("Convite nao encontrado. Tente novamente.");
+      }
+    } catch {
+      setSearchError("Ocorreu um erro ao buscar o convite. Tente novamente.");
+    } finally {
+      setIsSearching(false);
+    }
+  }, []);
+
+  // Handler para refinar busca
+  const handleRefineSearch = useCallback(() => {
+    setMultipleMatches(null);
   }, []);
 
   // Handler de selecao de convidados
@@ -109,6 +156,7 @@ export function SaveTheDateIntentPage() {
   }, [invite, selectedGuestIds, attendanceOptions]);
 
   // Condicoes para exibir cada secao
+  const showDisambiguation = multipleMatches !== null && multipleMatches.length > 0;
   const showGuestSelection = invite !== null;
   const showAttendance = showGuestSelection && selectedGuestIds.length > 0;
   const showSummary =
@@ -151,6 +199,16 @@ export function SaveTheDateIntentPage() {
             isLoading={isSearching}
             error={searchError}
           />
+
+          {/* Etapa 1.5: Desambiguacao (multiplos resultados) */}
+          {showDisambiguation && (
+            <DisambiguationSection
+              matches={multipleMatches}
+              onSelectInvite={handleSelectInvite}
+              onRefineSearch={handleRefineSearch}
+              originalQuery={originalQuery}
+            />
+          )}
 
           {/* Etapa 2: Selecao de convidados */}
           {showGuestSelection && invite && (
