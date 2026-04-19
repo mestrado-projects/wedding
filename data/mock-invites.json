@@ -227,6 +227,7 @@
       "group": "Família do noivo",
       "phone": "62740",
       "searchTerms": [
+        "gabriel",
         "gabriela",
         "gabriela rotta",
         "eric",
@@ -342,6 +343,8 @@
       "phone": "68620",
       "searchTerms": [
         "jakeline",
+        "fernando",
+        "fernando jakeline",
         "68620"
       ],
       "guests": [
@@ -386,11 +389,12 @@
     },
     {
       "inviteId": "inv-015",
-      "inviteName": "Luis",
+      "inviteName": "Luis (1)",
       "group": "Amigos da noiva",
       "phone": "11111",
       "searchTerms": [
-        "luis amigo noiva",
+        "luis",
+        "luis amigo",
         "11111"
       ],
       "guests": [
@@ -424,6 +428,7 @@
       "group": "Amigos do noivo",
       "phone": "82924",
       "searchTerms": [
+        "gabriel",
         "seidi",
         "gabriel seidi",
         "emille",
@@ -451,6 +456,8 @@
       "group": "Amigos do noivo",
       "phone": "18189",
       "searchTerms": [
+        "fernando",
+        "fernando melissa",
         "melissa",
         "18189",
         "72221"
@@ -532,6 +539,10 @@
       "phone": "48680",
       "searchTerms": [
         "myla",
+        "paulo",
+        "mariana",
+        "paulo myla",
+        "mariana myla",
         "48680"
       ],
       "guests": [
@@ -644,7 +655,7 @@
         {
           "id": "g-047",
           "name": "Evandro",
-          "gender": "F",
+          "gender": "M",
           "ageGroup": "Adulto"
         },
         {
@@ -738,6 +749,22 @@
         {
           "id": "g-055",
           "name": "Anderson",
+          "gender": "M",
+          "ageGroup": "Adulto"
+        }
+      ]
+    },
+    {
+      "inviteId": "inv-037",
+      "inviteName": "Luis (2)",
+      "group": "Amigos da noiva",
+      "searchTerms": [
+        "luis"
+      ],
+      "guests": [
+        {
+          "id": "g-067",
+          "name": "Luis",
           "gender": "M",
           "ageGroup": "Adulto"
         }
