@@ -19,6 +19,7 @@ export type InviteSearchResult = {
 };
 
 export type AttendanceOptions = {
+  declined: boolean;
   ceremony: boolean;
   hotelSaturday: boolean;
   hotelSunday: boolean;

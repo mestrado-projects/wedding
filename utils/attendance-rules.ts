@@ -1,16 +1,18 @@
 import type { AttendanceOptions } from "@/types/invite";
 
 /**
- * Aplica as regras de dependencia entre opcoes de comparecimento.
+ * Aplica as regras de dependência entre opções de comparecimento.
  * 
  * Evento: Save the Weekend
- * - Sabado 29/05: Cerimonia e festa
+ * - Sábado 29/05: Cerimônia e festa
  * - Domingo 30/05: Dia de lazer
  * - Segunda 31/05: Checkout
  * 
  * Regras:
- * - Domingo implica sabado e cerimonia (precisa estar no sabado para ficar domingo)
- * - Sabado implica cerimonia (vai dormir depois da festa)
+ * - Recusa desmarca todas as outras opções
+ * - Qualquer opção de presença desmarca a recusa
+ * - Domingo implica sábado e cerimônia (precisa estar no sábado para ficar domingo)
+ * - Sábado implica cerimônia (vai dormir depois da festa)
  */
 export function applyAttendanceRules(
   currentOptions: AttendanceOptions,
@@ -19,27 +21,42 @@ export function applyAttendanceRules(
 ): AttendanceOptions {
   const updated = { ...currentOptions, [changedKey]: newValue };
 
-  // Regras de marcacao automatica (quando marca uma opcao)
+  // Se marcou "não consigo comparecer", desmarca todas as outras
+  if (changedKey === "declined" && newValue) {
+    return {
+      declined: true,
+      ceremony: false,
+      hotelSaturday: false,
+      hotelSunday: false,
+    };
+  }
+
+  // Se marcou qualquer opção de presença, desmarca a recusa
+  if (changedKey !== "declined" && newValue) {
+    updated.declined = false;
+  }
+
+  // Regras de marcação automática (quando marca uma opção)
   if (newValue) {
-    // Domingo implica sabado e cerimonia
+    // Domingo implica sábado e cerimônia
     if (changedKey === "hotelSunday") {
       updated.hotelSaturday = true;
       updated.ceremony = true;
     }
-    // Sabado implica cerimonia
+    // Sábado implica cerimônia
     if (changedKey === "hotelSaturday") {
       updated.ceremony = true;
     }
   }
 
-  // Regras de desmarcacao automatica (quando desmarca uma opcao)
+  // Regras de desmarcação automática (quando desmarca uma opção)
   if (!newValue) {
-    // Se desmarcar cerimonia, desmarcar sabado e domingo
+    // Se desmarcar cerimônia, desmarcar sábado e domingo
     if (changedKey === "ceremony") {
       updated.hotelSaturday = false;
       updated.hotelSunday = false;
     }
-    // Se desmarcar sabado, desmarcar domingo
+    // Se desmarcar sábado, desmarcar domingo
     if (changedKey === "hotelSaturday") {
       updated.hotelSunday = false;
     }
@@ -49,17 +66,26 @@ export function applyAttendanceRules(
 }
 
 /**
- * Verifica se pelo menos uma opcao de comparecimento esta marcada
+ * Verifica se pelo menos uma opção de comparecimento está marcada
+ * (incluindo a opção de recusa)
  */
 export function hasAnyAttendanceOption(options: AttendanceOptions): boolean {
   return Object.values(options).some(Boolean);
 }
 
 /**
- * Retorna as opcoes iniciais (todas desmarcadas)
+ * Verifica se o convidado recusou a presença
+ */
+export function hasDeclined(options: AttendanceOptions): boolean {
+  return options.declined;
+}
+
+/**
+ * Retorna as opções iniciais (todas desmarcadas)
  */
 export function getInitialAttendanceOptions(): AttendanceOptions {
   return {
+    declined: false,
     ceremony: false,
     hotelSaturday: false,
     hotelSunday: false,
