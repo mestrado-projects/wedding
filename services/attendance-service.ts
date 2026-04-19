@@ -1,24 +1,33 @@
 import type { AttendanceIntentPayload } from "@/types/invite";
 
-/**
- * Envia a intencao de comparecimento para o backend
- * @param payload - Dados da intencao de comparecimento
- * @returns Promise<void>
- */
+const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL;
+
 export async function submitAttendanceIntent(
   payload: AttendanceIntentPayload
 ): Promise<void> {
-  // Simula delay de rede
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  if (!APPS_SCRIPT_URL) {
+    throw new Error("NEXT_PUBLIC_APPS_SCRIPT_URL não configurada.");
+  }
 
-  // Log para desenvolvimento
-  console.log("Intencao de comparecimento enviada:", payload);
+  const response = await fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8",
+    },
+    body: JSON.stringify(payload),
+  });
 
-  // Em producao, faria a chamada real:
-  // const response = await fetch('/api/attendance', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(payload),
-  // });
-  // if (!response.ok) throw new Error('Falha ao enviar');
+  const text = await response.text();
+
+  let result: { success?: boolean; error?: string } = {};
+
+  try {
+    result = JSON.parse(text);
+  } catch {
+    throw new Error("Resposta inválida do Apps Script.");
+  }
+
+  if (!response.ok || !result.success) {
+    throw new Error(result.error || "Falha ao enviar resposta.");
+  }
 }

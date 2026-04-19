@@ -38,7 +38,7 @@ const ATTENDANCE_OPTIONS: Array<{
   {
     key: "hotelSunday",
     label: "Hospedagem domingo para segunda",
-    description: "Noite de 30 para 31 de maio (checkout segunda)",
+    description: "Noite de 30 para 31 de maio (checkout 12h)",
     icon: "hotel",
   },
 ];
