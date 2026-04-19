@@ -44,7 +44,6 @@ export function DisambiguationSection({
             className="w-full p-4 text-left rounded-lg border border-border/60 bg-background/50 hover:bg-muted/50 hover:border-secondary/40 transition-colors"
           >
             <p className="font-serif text-base text-primary">{match.inviteName}</p>
-            <p className="text-sm text-muted-foreground mt-0.5">{match.group}</p>
           </button>
         ))}
       </div>

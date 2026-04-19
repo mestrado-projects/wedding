@@ -78,7 +78,7 @@ function findAllMatches(query: string): MockInvite[] {
   
   // Busca por nome/termo
   for (const invite of invites) {
-    // Busca exata por searchTerms
+    // Busca exata por searchTerms (match exato)
     const exactMatch = invite.searchTerms.some((term) => {
       const normalizedTerm = normalizeQuery(term);
       return normalizedTerm === normalizedQuery;
@@ -89,21 +89,12 @@ function findAllMatches(query: string): MockInvite[] {
       continue;
     }
     
-    // Busca parcial por searchTerms
-    const partialMatch = invite.searchTerms.some((term) => {
-      const normalizedTerm = normalizeQuery(term);
-      return normalizedTerm.includes(normalizedQuery) || normalizedQuery.includes(normalizedTerm);
-    });
-    
-    if (partialMatch) {
-      matches.push(invite);
-      continue;
-    }
-    
-    // Busca por nome de convidado
+    // Busca por nome de convidado (match exato com primeiro nome ou nome completo)
     const guestMatch = invite.guests.some((guest) => {
       const normalizedName = normalizeQuery(guest.name);
-      return normalizedName.includes(normalizedQuery);
+      const nameParts = guest.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(/\s+/);
+      // Match exato com nome completo ou primeiro nome
+      return normalizedName === normalizedQuery || nameParts[0] === normalizedQuery;
     });
     
     if (guestMatch) {
