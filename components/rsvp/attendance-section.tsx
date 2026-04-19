@@ -24,12 +24,6 @@ const ATTENDANCE_OPTIONS: Array<{
     icon: "calendar",
   },
   {
-    key: "hotelFriday",
-    label: "Hospedagem sexta para sabado",
-    description: "Noite de 28 para 29 de maio",
-    icon: "hotel",
-  },
-  {
     key: "hotelSaturday",
     label: "Hospedagem sabado para domingo",
     description: "Noite de 29 para 30 de maio",
@@ -38,7 +32,7 @@ const ATTENDANCE_OPTIONS: Array<{
   {
     key: "hotelSunday",
     label: "Hospedagem domingo para segunda",
-    description: "Noite de 30 para 31 de maio",
+    description: "Noite de 30 para 31 de maio (checkout segunda)",
     icon: "hotel",
   },
 ];

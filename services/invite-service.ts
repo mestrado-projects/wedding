@@ -1,37 +1,19 @@
 import type { InviteResponse, SearchQuery } from "@/types/invite";
 import { detectQueryType } from "@/utils/detect-query-type";
+import mockData from "@/data/mock-invites.json";
 
-// Mock data para desenvolvimento
-const MOCK_INVITES: Record<string, InviteResponse> = {
-  "yara": {
-    inviteId: "inv-001",
-    guests: [
-      { id: "g-001", name: "Yara" },
-      { id: "g-002", name: "Carlos" },
-    ],
-  },
-  "gustavo": {
-    inviteId: "inv-002",
-    guests: [
-      { id: "g-003", name: "Gustavo" },
-      { id: "g-004", name: "Ana" },
-      { id: "g-005", name: "Pedro" },
-    ],
-  },
-  "maria": {
-    inviteId: "inv-003",
-    guests: [
-      { id: "g-006", name: "Maria" },
-      { id: "g-007", name: "Joao" },
-    ],
-  },
-  "11999887766": {
-    inviteId: "inv-001",
-    guests: [
-      { id: "g-001", name: "Yara" },
-      { id: "g-002", name: "Carlos" },
-    ],
-  },
+type MockInvite = {
+  inviteId: string;
+  inviteName: string;
+  group: string;
+  phone?: string;
+  searchTerms: string[];
+  guests: Array<{
+    id: string;
+    name: string;
+    gender: "M" | "F";
+    ageGroup: "Adulto" | "Adolescente" | "Criança de colo";
+  }>;
 };
 
 /**
@@ -40,26 +22,75 @@ const MOCK_INVITES: Record<string, InviteResponse> = {
  * @returns Promise com o convite encontrado ou null
  */
 export async function searchInvite(query: string): Promise<InviteResponse | null> {
-  const queryType = detectQueryType(query);
-  const normalizedQuery = query.toLowerCase().trim();
+  const normalizedQuery = query.toLowerCase().trim().replace(/[\s\-()]/g, "");
   
   // Simula delay de rede
-  await new Promise((resolve) => setTimeout(resolve, 800));
+  await new Promise((resolve) => setTimeout(resolve, 600));
 
   // Busca no mock
-  const invite = MOCK_INVITES[normalizedQuery];
+  const invites = mockData.invites as MockInvite[];
   
-  if (invite) {
-    return invite;
+  // Busca exata por searchTerms
+  const exactMatch = invites.find((invite) =>
+    invite.searchTerms.some((term) => term.toLowerCase() === normalizedQuery)
+  );
+  
+  if (exactMatch) {
+    return {
+      inviteId: exactMatch.inviteId,
+      inviteName: exactMatch.inviteName,
+      group: exactMatch.group,
+      guests: exactMatch.guests.map((g) => ({
+        id: g.id,
+        name: g.name,
+        gender: g.gender,
+        ageGroup: g.ageGroup,
+      })),
+    };
   }
 
-  // Busca parcial por nome
-  if (queryType === "name") {
-    for (const [key, value] of Object.entries(MOCK_INVITES)) {
-      if (key.includes(normalizedQuery) || normalizedQuery.includes(key)) {
-        return value;
-      }
-    }
+  // Busca parcial por searchTerms
+  const partialMatch = invites.find((invite) =>
+    invite.searchTerms.some(
+      (term) =>
+        term.toLowerCase().includes(normalizedQuery) ||
+        normalizedQuery.includes(term.toLowerCase())
+    )
+  );
+
+  if (partialMatch) {
+    return {
+      inviteId: partialMatch.inviteId,
+      inviteName: partialMatch.inviteName,
+      group: partialMatch.group,
+      guests: partialMatch.guests.map((g) => ({
+        id: g.id,
+        name: g.name,
+        gender: g.gender,
+        ageGroup: g.ageGroup,
+      })),
+    };
+  }
+
+  // Busca por nome de convidado
+  const guestMatch = invites.find((invite) =>
+    invite.guests.some((guest) =>
+      guest.name.toLowerCase().includes(normalizedQuery)
+    )
+  );
+
+  if (guestMatch) {
+    return {
+      inviteId: guestMatch.inviteId,
+      inviteName: guestMatch.inviteName,
+      group: guestMatch.group,
+      guests: guestMatch.guests.map((g) => ({
+        id: g.id,
+        name: g.name,
+        gender: g.gender,
+        ageGroup: g.ageGroup,
+      })),
+    };
   }
 
   return null;

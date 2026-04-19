@@ -3,10 +3,14 @@ import type { AttendanceOptions } from "@/types/invite";
 /**
  * Aplica as regras de dependencia entre opcoes de comparecimento.
  * 
+ * Evento: Save the Weekend
+ * - Sabado 29/05: Cerimonia e festa
+ * - Domingo 30/05: Dia de lazer
+ * - Segunda 31/05: Checkout
+ * 
  * Regras:
- * - Domingo implica sabado e cerimonia
- * - Sabado implica cerimonia
- * - Sexta NAO implica cerimonia (regra de negocio especifica)
+ * - Domingo implica sabado e cerimonia (precisa estar no sabado para ficar domingo)
+ * - Sabado implica cerimonia (vai dormir depois da festa)
  */
 export function applyAttendanceRules(
   currentOptions: AttendanceOptions,
@@ -30,7 +34,7 @@ export function applyAttendanceRules(
 
   // Regras de desmarcacao automatica (quando desmarca uma opcao)
   if (!newValue) {
-    // Se desmarcar cerimonia, desmarcar sabado e domingo (mas nao sexta)
+    // Se desmarcar cerimonia, desmarcar sabado e domingo
     if (changedKey === "ceremony") {
       updated.hotelSaturday = false;
       updated.hotelSunday = false;
@@ -57,7 +61,6 @@ export function hasAnyAttendanceOption(options: AttendanceOptions): boolean {
 export function getInitialAttendanceOptions(): AttendanceOptions {
   return {
     ceremony: false,
-    hotelFriday: false,
     hotelSaturday: false,
     hotelSunday: false,
   };

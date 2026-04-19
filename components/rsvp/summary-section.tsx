@@ -15,7 +15,6 @@ interface SummarySectionProps {
 
 const ATTENDANCE_LABELS: Record<keyof AttendanceOptions, string> = {
   ceremony: "Cerimonia e festa",
-  hotelFriday: "Hospedagem sexta para sabado",
   hotelSaturday: "Hospedagem sabado para domingo",
   hotelSunday: "Hospedagem domingo para segunda",
 };

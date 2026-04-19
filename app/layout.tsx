@@ -23,8 +23,8 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: 'Yara & Gustavo - 29 de Maio de 2027',
-  description: 'Convite de casamento de Yara e Gustavo. Confirme sua presenca em nosso grande dia.',
+  title: 'Yara & Gustavo - Save the Weekend - 29 a 31 de Maio de 2027',
+  description: 'Save the Weekend de Yara e Gustavo. Confirme sua presenca para nosso fim de semana especial.',
   generator: 'v0.app',
   icons: {
     icon: [

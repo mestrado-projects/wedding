@@ -1,0 +1,375 @@
+{
+  "invites": [
+    {
+      "inviteId": "inv-001",
+      "inviteName": "Inez",
+      "group": "Família da noiva",
+      "searchTerms": ["inez"],
+      "guests": [
+        { "id": "g-001", "name": "Inez", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-002",
+      "inviteName": "Alexsandra e Marlene",
+      "group": "Família da noiva",
+      "searchTerms": ["alexsandra", "marlene"],
+      "guests": [
+        { "id": "g-002", "name": "Alexsandra", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-003", "name": "Marlene", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-003",
+      "inviteName": "Adriana e José",
+      "group": "Família da noiva",
+      "phone": "81944150320",
+      "searchTerms": ["adriana", "josé", "jose", "81944150320"],
+      "guests": [
+        { "id": "g-004", "name": "Adriana", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-005", "name": "José", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-004",
+      "inviteName": "Cleide Lira e Socorro",
+      "group": "Família do noivo",
+      "phone": "83960749330",
+      "searchTerms": ["cleide", "lira", "maria cleide", "socorro", "83960749330", "83994970270"],
+      "guests": [
+        { "id": "g-006", "name": "Maria Cleide Lira Silva", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-007", "name": "Maria Socorro", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-005",
+      "inviteName": "Luzia e Victor",
+      "group": "Família do noivo",
+      "phone": "11996659048",
+      "searchTerms": ["luzia", "palopoli", "victor", "rotta", "11996659048", "11974999589"],
+      "guests": [
+        { "id": "g-008", "name": "Luzia Palopoli", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-009", "name": "Victor Rotta", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-006",
+      "inviteName": "Ricardo e Jeovana",
+      "group": "Família do noivo",
+      "phone": "81924330670",
+      "searchTerms": ["ricardo", "jeovana", "araujo", "81924330670", "81929514960"],
+      "guests": [
+        { "id": "g-010", "name": "Ricardo Rotta", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-011", "name": "Jeovana Araujo", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-007",
+      "inviteName": "João e Caroline",
+      "group": "Família do noivo",
+      "searchTerms": ["joão", "joao", "marco", "caroline", "pundrich"],
+      "guests": [
+        { "id": "g-012", "name": "João Marco", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-013", "name": "Caroline Pundrich", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-008",
+      "inviteName": "Roberta, Cleber e Helena",
+      "group": "Família do noivo",
+      "phone": "11943286695",
+      "searchTerms": ["roberta", "cleber", "helena", "vasconcelos", "11943286695"],
+      "guests": [
+        { "id": "g-014", "name": "Roberta Rotta", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-015", "name": "Cleber Santos de Vasconcelos", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-016", "name": "Helena Rotta", "gender": "F", "ageGroup": "Adolescente" }
+      ]
+    },
+    {
+      "inviteId": "inv-009",
+      "inviteName": "Gabriela e Eric",
+      "group": "Família do noivo",
+      "phone": "11975162740",
+      "searchTerms": ["gabriela", "eric", "cerqueira", "11975162740"],
+      "guests": [
+        { "id": "g-017", "name": "Gabriela Rotta", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-018", "name": "Eric Cerqueira", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-010",
+      "inviteName": "Cosmo e Fran",
+      "group": "Família do noivo",
+      "phone": "11949213368",
+      "searchTerms": ["cosmo", "fran", "francisca", "darlania", "11949213368", "11960840334"],
+      "guests": [
+        { "id": "g-019", "name": "Cosmo Lira", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-020", "name": "Francisca Darlania", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-011",
+      "inviteName": "Familia Cavalcante",
+      "group": "Família do noivo",
+      "phone": "11996829719",
+      "searchTerms": ["vilani", "wallyres", "cavalcante", "11996829719", "12996829719"],
+      "guests": [
+        { "id": "g-021", "name": "Maria Vilani", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-022", "name": "Wallyres Cavalcante", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-012",
+      "inviteName": "Airton e Luciana",
+      "group": "Família do noivo",
+      "phone": "13981906230",
+      "searchTerms": ["airton", "luciana", "marques", "13981906230"],
+      "guests": [
+        { "id": "g-023", "name": "Luciana Marques", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-024", "name": "Airton Lira", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-013",
+      "inviteName": "Jakeline e Fernando",
+      "group": "Amigos da noiva",
+      "phone": "81916268620",
+      "searchTerms": ["jakeline", "fernando", "81916268620"],
+      "guests": [
+        { "id": "g-025", "name": "Jakeline", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-026", "name": "Fernando", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-014",
+      "inviteName": "Dona Zélia e Severino",
+      "group": "Amigos da noiva",
+      "searchTerms": ["zélia", "zelia", "severino"],
+      "guests": [
+        { "id": "g-027", "name": "Dona Zélia", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-028", "name": "Severino", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-015",
+      "inviteName": "Luis",
+      "group": "Amigos da noiva",
+      "searchTerms": ["luis"],
+      "guests": [
+        { "id": "g-029", "name": "Luis", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-016",
+      "inviteName": "Thaisa",
+      "group": "Amigos da noiva",
+      "searchTerms": ["thaisa"],
+      "guests": [
+        { "id": "g-030", "name": "Thaisa", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-017",
+      "inviteName": "Gabriel Seidi e Emille",
+      "group": "Amigos do noivo",
+      "phone": "11943582924",
+      "searchTerms": ["gabriel", "seidi", "emille", "11943582924"],
+      "guests": [
+        { "id": "g-031", "name": "Gabriel Seidi", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-032", "name": "Emille Vitoria", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-018",
+      "inviteName": "Fernando e Melissa",
+      "group": "Amigos do noivo",
+      "phone": "11997718189",
+      "searchTerms": ["melissa", "11997718189", "11954072221"],
+      "guests": [
+        { "id": "g-033", "name": "Fernando", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-034", "name": "Melissa", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-019",
+      "inviteName": "Vitor e Carolina",
+      "group": "Amigos do noivo",
+      "phone": "11995108185",
+      "searchTerms": ["vitor", "alves", "carolina", "cordaro", "11995108185"],
+      "guests": [
+        { "id": "g-035", "name": "Vitor Alves", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-036", "name": "Carolina Cordaro", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-020",
+      "inviteName": "Bruno Morelli",
+      "group": "Amigos do noivo",
+      "phone": "11969807575",
+      "searchTerms": ["bruno", "morelli", "11969807575"],
+      "guests": [
+        { "id": "g-037", "name": "Bruno Morelli", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-038", "name": "Acompanhante Bruno", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-021",
+      "inviteName": "Myla, Paulo e Mariana",
+      "group": "Amigos do noivo",
+      "phone": "81956648680",
+      "searchTerms": ["myla", "paulo", "mariana", "81956648680"],
+      "guests": [
+        { "id": "g-039", "name": "Myla", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-040", "name": "Paulo", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-041", "name": "Mariana", "gender": "F", "ageGroup": "Criança de colo" }
+      ]
+    },
+    {
+      "inviteId": "inv-022",
+      "inviteName": "Maria Luisa",
+      "group": "Amigos do noivo",
+      "phone": "81977106880",
+      "searchTerms": ["maria luisa", "bezerra", "81977106880"],
+      "guests": [
+        { "id": "g-042", "name": "Maria Luisa Bezerra", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-023",
+      "inviteName": "Alberes",
+      "group": "Família da noiva",
+      "searchTerms": ["alberes"],
+      "guests": [
+        { "id": "g-043", "name": "Alberes", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-024",
+      "inviteName": "Fátima",
+      "group": "Família da noiva",
+      "searchTerms": ["fátima", "fatima"],
+      "guests": [
+        { "id": "g-044", "name": "Fátima", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-025",
+      "inviteName": "Graça e Marido Graça",
+      "group": "Família da noiva",
+      "searchTerms": ["graça", "graca"],
+      "guests": [
+        { "id": "g-045", "name": "Graça", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-046", "name": "Marido Graça", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-026",
+      "inviteName": "Evandro e Tiziana",
+      "group": "Família da noiva",
+      "searchTerms": ["evandro", "tiziana"],
+      "guests": [
+        { "id": "g-047", "name": "Evandro", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-048", "name": "Tiziana", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-027",
+      "inviteName": "Wagner e Rejane",
+      "group": "Família da noiva",
+      "phone": "87920733540",
+      "searchTerms": ["wagner", "rejane", "87920733540", "8781813354"],
+      "guests": [
+        { "id": "g-049", "name": "Wagner", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-050", "name": "Rejane", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-028",
+      "inviteName": "Bruna e Melquison",
+      "group": "Família da noiva",
+      "searchTerms": ["bruna", "melquison"],
+      "guests": [
+        { "id": "g-051", "name": "Bruna", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-052", "name": "Melquison", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-029",
+      "inviteName": "Tamires e Vitinho",
+      "group": "Família da noiva",
+      "searchTerms": ["tamires", "vitinho"],
+      "guests": [
+        { "id": "g-053", "name": "Tamires", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-054", "name": "Vitinho", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-030",
+      "inviteName": "Anderson",
+      "group": "Amigos da noiva",
+      "searchTerms": ["anderson"],
+      "guests": [
+        { "id": "g-055", "name": "Anderson", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-031",
+      "inviteName": "Thaysa",
+      "group": "Amigos da noiva",
+      "searchTerms": ["thaysa"],
+      "guests": [
+        { "id": "g-056", "name": "Thaysa", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-032",
+      "inviteName": "Darlanne",
+      "group": "Amigos da noiva",
+      "searchTerms": ["darlanne"],
+      "guests": [
+        { "id": "g-057", "name": "Darlanne", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-058", "name": "Esposo Darlanne", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-033",
+      "inviteName": "Natália",
+      "group": "Amigos da noiva",
+      "searchTerms": ["natália", "natalia"],
+      "guests": [
+        { "id": "g-059", "name": "Natália", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-060", "name": "Esposo Natália", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-034",
+      "inviteName": "Iasmyn",
+      "group": "Amigos da noiva",
+      "searchTerms": ["iasmyn"],
+      "guests": [
+        { "id": "g-061", "name": "Iasmyn", "gender": "F", "ageGroup": "Adulto" },
+        { "id": "g-062", "name": "Esposo Iasmyn", "gender": "M", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-035",
+      "inviteName": "Alexsander",
+      "group": "Amigos da noiva",
+      "searchTerms": ["alexsander"],
+      "guests": [
+        { "id": "g-063", "name": "Alexsander", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-064", "name": "Esposa de Alex", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    },
+    {
+      "inviteId": "inv-036",
+      "inviteName": "Charles",
+      "group": "Amigos da noiva",
+      "searchTerms": ["charles"],
+      "guests": [
+        { "id": "g-065", "name": "Charles", "gender": "M", "ageGroup": "Adulto" },
+        { "id": "g-066", "name": "Esposa do Charles", "gender": "F", "ageGroup": "Adulto" }
+      ]
+    }
+  ]
+}

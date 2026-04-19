@@ -132,13 +132,13 @@ export function SaveTheDateIntentPage() {
       {/* Header decorativo */}
       <header className="text-center mb-8 space-y-2">
         <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-          Save the Date
+          Save the Weekend
         </p>
         <h1 className="font-display text-5xl md:text-6xl text-primary">
           Yara & Gustavo
         </h1>
         <p className="font-serif text-lg text-secondary">
-          29 de maio de 2027
+          29, 30 e 31 de maio de 2027
         </p>
       </header>
 

@@ -1,16 +1,19 @@
 export type Guest = {
   id: string;
   name: string;
+  gender?: "M" | "F";
+  ageGroup?: "Adulto" | "Adolescente" | "Criança de colo";
 };
 
 export type InviteResponse = {
   inviteId: string;
+  inviteName: string;
+  group: string;
   guests: Guest[];
 };
 
 export type AttendanceOptions = {
   ceremony: boolean;
-  hotelFriday: boolean;
   hotelSaturday: boolean;
   hotelSunday: boolean;
 };
