@@ -28,7 +28,7 @@ export function ConfirmationSection() {
           Yara & Gustavo
         </p>
         <p className="text-sm text-muted-foreground mt-1">
-          29 de maio de 2027
+          WEDDING IS COMMING
         </p>
       </div>
     </section>

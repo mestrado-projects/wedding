@@ -8,19 +8,26 @@ import type { AttendanceOptions } from "@/types/invite";
 interface AttendanceSectionProps {
   options: AttendanceOptions;
   onOptionChange: (key: keyof AttendanceOptions, value: boolean) => void;
+  onActionClick?: (action: "openHotelInfo") => void;
   error: string | null;
 }
+
+type AttendanceOptionAction = {
+  label: string;
+  action: "openHotelInfo";
+};
 
 const ATTENDANCE_OPTIONS: Array<{
   key: keyof AttendanceOptions;
   label: string;
   description: string;
+  actions?: AttendanceOptionAction[];
   icon: "calendar" | "hotel" | "decline";
 }> = [
   {
     key: "declined",
     label: "Não consigo comparecer",
-    description: "Infelizmente não poderei participar do evento",
+    description: "Ficaremos tristes com sua ausência, mas entendemos que o deslocamento pode ser complexo.",
     icon: "decline",
   },
   {
@@ -32,13 +39,19 @@ const ATTENDANCE_OPTIONS: Array<{
   {
     key: "hotelSaturday",
     label: "Hospedagem sábado para domingo",
-    description: "Noite de 29 para 30 de maio",
+    description: "",
+    actions: [
+      {
+        label: "Ver detalhes do hotel",
+        action: "openHotelInfo",
+      },
+    ],
     icon: "hotel",
   },
   {
     key: "hotelSunday",
     label: "Hospedagem domingo para segunda",
-    description: "Noite de 30 para 31 de maio (checkout 12h)",
+    description: "Checkout até as 12h",
     icon: "hotel",
   },
 ];
@@ -46,6 +59,7 @@ const ATTENDANCE_OPTIONS: Array<{
 export function AttendanceSection({
   options,
   onOptionChange,
+  onActionClick,
   error,
 }: AttendanceSectionProps) {
   const IconMap = {
@@ -62,10 +76,10 @@ export function AttendanceSection({
         </div>
         <div>
           <h3 className="font-serif text-xl text-primary">
-            Intenção de participação
+            Conta pra gente se você pode comparecer
           </h3>
           <p className="text-sm text-muted-foreground">
-            Selecione as opções que se aplicam a todos os convidados selecionados
+            As opções que se aplicam a todos os convidados selecionados
           </p>
         </div>
       </div>
@@ -116,9 +130,29 @@ export function AttendanceSection({
                     <Icon className={`size-4 ${isDeclineOption ? "text-muted-foreground/70" : "text-secondary/70"}`} />
                     {option.label}
                   </Label>
-                  <p className="text-sm text-muted-foreground mt-0.5">
-                    {option.description}
-                  </p>
+                  {option.description && (
+                    <p className="text-sm text-muted-foreground mt-0.5">
+                      {option.description}
+                    </p>
+                  )}
+
+                  {option.actions && option.actions.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-3">
+                      {option.actions.map((action) => (
+                        <button
+                          key={`${option.key}-${action.action}`}
+                          type="button"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            onActionClick?.(action.action);
+                          }}
+                          className="text-sm text-secondary underline underline-offset-4 hover:text-secondary/80 transition-colors"
+                        >
+                          {action.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -132,9 +166,6 @@ export function AttendanceSection({
         </p>
       )}
 
-      <p className="text-xs text-muted-foreground text-center italic">
-        Ao selecionar hospedagem de sábado ou domingo, a cerimônia será marcada automaticamente.
-      </p>
     </section>
   );
 }

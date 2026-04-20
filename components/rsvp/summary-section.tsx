@@ -66,7 +66,7 @@ export function SummarySection({
 
         <div className="border-t border-border/30 pt-4">
           <h4 className="text-sm font-medium text-muted-foreground mb-2">
-            Participacao
+            Participação
           </h4>
           <ul className="space-y-1">
             {selectedOptions.map((key) => (

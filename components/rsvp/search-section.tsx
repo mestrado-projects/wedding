@@ -28,8 +28,7 @@ export function SearchSection({ onSearch, isLoading, error }: SearchSectionProps
           Confirme sua presenca
         </h2>
         <p className="text-muted-foreground leading-relaxed max-w-md mx-auto">
-          Esta resposta nos ajuda a planejar o casamento e a hospedagem com carinho.
-          Nao substitui a confirmacao oficial, que enviaremos em breve.
+          Esta resposta é muito importante para nos ajudar a planejar o casamento, a hospedagem e o cronograma de cada dia com todo o cuidado que vocês merecem.
         </p>
       </div>
 
@@ -60,6 +59,9 @@ export function SearchSection({ onSearch, isLoading, error }: SearchSectionProps
             "Buscar convite"
           )}
         </Button>
+        <p className="text-muted-foreground leading-relaxed max-w-md mx-auto">
+        O convite e confirmação oficial, serão enviados mais próximo do evento.
+        </p>
       </form>
 
       {error && (

@@ -10,6 +10,7 @@ import { SummarySection } from "./summary-section";
 import { ConfirmationSection } from "./confirmation-section";
 import { searchInvite, getInviteById } from "@/services/invite-service";
 import { submitAttendanceIntent } from "@/services/attendance-service";
+import { HotelInfoDialog } from "./hotel-info-dialog";
 import {
   applyAttendanceRules,
   hasAnyAttendanceOption,
@@ -43,6 +44,14 @@ export function SaveTheDateIntentPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const [isHotelInfoOpen, setIsHotelInfoOpen] = useState(false);
+
+  const handleAttendanceAction = useCallback((action: "openHotelInfo") => {
+    if (action === "openHotelInfo") {
+      setIsHotelInfoOpen(true);
+    }
+  }, []);
 
   // Reseta todos os estados para nova busca
   const resetState = useCallback(() => {
@@ -132,7 +141,7 @@ export function SaveTheDateIntentPage() {
     }
 
     if (!hasAnyAttendanceOption(attendanceOptions)) {
-      setAttendanceError("Selecione pelo menos uma opcao de participacao.");
+      setAttendanceError("Selecione pelo menos uma opcao de participação.");
       return;
     }
 
@@ -225,6 +234,7 @@ export function SaveTheDateIntentPage() {
             <AttendanceSection
               options={attendanceOptions}
               onOptionChange={handleAttendanceChange}
+              onActionClick={handleAttendanceAction}
               error={attendanceError}
             />
           )}
@@ -249,6 +259,11 @@ export function SaveTheDateIntentPage() {
           Feito com amor para o nosso grande dia
         </p>
       </footer>
+      
+      <HotelInfoDialog
+        open={isHotelInfoOpen}
+        onOpenChange={setIsHotelInfoOpen}
+      />
     </div>
   );
 }
