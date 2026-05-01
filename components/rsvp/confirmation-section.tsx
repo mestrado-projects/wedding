@@ -1,26 +1,38 @@
 "use client";
 
-import { Heart } from "lucide-react";
+import { Heart, HeartCrack } from "lucide-react";
 
-export function ConfirmationSection() {
+interface ConfirmationSectionProps {
+  declined?: boolean;
+}
+
+export function ConfirmationSection({ declined = false }: ConfirmationSectionProps) {
   return (
     <section className="text-center space-y-6 py-8 animate-in fade-in zoom-in-95 duration-700">
       <div className="inline-flex items-center justify-center p-4 rounded-full bg-secondary/10">
-        <Heart className="size-10 text-secondary" fill="currentColor" />
+        {declined ? (
+          <HeartCrack className="size-10 text-secondary" />
+        ) : (
+          <Heart className="size-10 text-secondary" fill="currentColor" />
+        )}
       </div>
 
       <div className="space-y-3">
         <h2 className="font-display text-4xl text-primary">
-          Obrigado!
+          {declined ? "Vamos sentir sua falta" : "Obrigado!"}
         </h2>
+
         <p className="font-serif text-xl text-primary">
-          Recebemos sua resposta com carinho
+          {declined
+            ? "Recebemos sua resposta com carinho"
+            : "Recebemos sua resposta com carinho"}
         </p>
       </div>
 
       <p className="text-muted-foreground max-w-sm mx-auto leading-relaxed">
-        Agradecemos por nos ajudar com o planejamento.
-        Em breve enviaremos o convite oficial com todos os detalhes.
+        {declined
+          ? "Ficaremos tristes por não ter você conosco nesse momento tão especial, mas entendemos. Obrigado por nos ajudar com o planejamento."
+          : "Agradecemos por nos ajudar com o planejamento. Em breve enviaremos o convite oficial com todos os detalhes."}
       </p>
 
       <div className="pt-4">
@@ -28,7 +40,7 @@ export function ConfirmationSection() {
           Yara & Gustavo
         </p>
         <p className="text-sm text-muted-foreground mt-1">
-          WEDDING IS COMMING
+          WEDDING IS COMING
         </p>
       </div>
     </section>

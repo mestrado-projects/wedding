@@ -25,7 +25,7 @@ export function SearchSection({ onSearch, isLoading, error }: SearchSectionProps
     <section className="space-y-6">
       <div className="text-center space-y-4">
         <h2 className="font-serif text-2xl text-primary">
-          Confirme sua presenca
+          Confirme sua presença
         </h2>
         <p className="text-muted-foreground leading-relaxed max-w-md mx-auto">
           Esta resposta é muito importante para nos ajudar a planejar o casamento, a hospedagem e o cronograma de cada dia com todo o cuidado que vocês merecem.
@@ -36,7 +36,7 @@ export function SearchSection({ onSearch, isLoading, error }: SearchSectionProps
         <div className="relative">
           <Input
             type="text"
-            placeholder="Digite seu nome ou telefone"
+            placeholder="Digite seu nome"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="h-12 pl-4 pr-12 text-base bg-background/50 border-border/60 focus:border-secondary focus:ring-secondary/30"

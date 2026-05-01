@@ -8,14 +8,17 @@ interface SummarySectionProps {
   guests: Guest[];
   selectedGuestIds: string[];
   attendance: AttendanceOptions;
+  address: string;
+  phone: string;
   onSubmit: () => Promise<void>;
   isLoading: boolean;
   error: string | null;
 }
 
 const ATTENDANCE_LABELS: Record<keyof AttendanceOptions, string> = {
-  ceremony: "Cerimonia e festa",
-  hotelSaturday: "Hospedagem sabado para domingo",
+  declined: "Não consigo comparecer",
+  ceremony: "Cerimônia e festa",
+  hotelSaturday: "Hospedagem sábado para domingo",
   hotelSunday: "Hospedagem domingo para segunda",
 };
 
@@ -23,6 +26,8 @@ export function SummarySection({
   guests,
   selectedGuestIds,
   attendance,
+  address,
+  phone,
   onSubmit,
   isLoading,
   error,
@@ -61,6 +66,17 @@ export function SummarySection({
                 {guest.name}
               </span>
             ))}
+          </div>
+        </div>
+
+        <div className="mt-4 space-y-2">
+          <div>
+            <span className="text-xs text-muted-foreground">Endereco:</span>
+            <p className="text-sm text-primary whitespace-pre-wrap">{address}</p>
+          </div>
+          <div>
+            <span className="text-xs text-muted-foreground">Telefone:</span>
+            <p className="text-sm text-primary">{phone}</p>
           </div>
         </div>
 

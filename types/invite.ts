@@ -27,9 +27,15 @@ export type AttendanceOptions = {
 
 export type AttendanceIntentPayload = {
   inviteId: string;
+  inviteName: string;
+  group: string;
   selectedGuestIds: string[];
+  selectedGuestNames: string[];
   attendanceIntent: AttendanceOptions;
-};
+  address?: string;
+  phone?: string;
+  source?: string;
+};;
 
 export type SearchQuery = {
   query: string;

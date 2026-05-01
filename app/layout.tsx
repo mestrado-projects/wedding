@@ -24,7 +24,7 @@ const greatVibes = Great_Vibes({
 
 export const metadata: Metadata = {
   title: 'Yara & Gustavo - Save the Weekend - 29 a 31 de Maio de 2027',
-  description: 'Save the Weekend de Yara e Gustavo. Confirme sua presenca para nosso fim de semana especial.',
+  description: 'Save the Weekend de Yara e Gustavo. Confirme sua presença para nosso fim de semana especial.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${montserrat.variable} ${playfairDisplay.variable} ${greatVibes.variable}`}>
-      <body className="font-sans antialiased bg-background">
+      <body suppressHydrationWarning className="font-sans antialiased bg-background">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
