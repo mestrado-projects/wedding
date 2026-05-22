@@ -305,27 +305,24 @@
     },
     {
       "inviteId": "inv-012",
-      "inviteName": "Airton e Luciana",
-      "group": "Família do noivo",
-      "phone": "06230",
+      "inviteName": "Rebecca e Kenzo",
+      "group": "Amigos do noivo",
+      "phone": "",
       "searchTerms": [
-        "airton",
-        "airton lira",
-        "luciana",
-        "marques",
-        "luciana marques",
-        "06230"
+        "kenzo",
+        "Rebecca",
+        "rebeca"
       ],
       "guests": [
         {
           "id": "g-023",
-          "name": "Luciana Marques",
+          "name": "Rebecca Martins",
           "gender": "F",
           "ageGroup": "Adulto"
         },
         {
           "id": "g-024",
-          "name": "Airton Lira",
+          "name": "Kenzo Seki",
           "gender": "M",
           "ageGroup": "Adulto"
         }
