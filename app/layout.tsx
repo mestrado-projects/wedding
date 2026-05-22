@@ -25,23 +25,14 @@ const greatVibes = Great_Vibes({
 export const metadata: Metadata = {
   title: 'Yara & Gustavo - Save the Weekend - 29 a 31 de Maio de 2027',
   description: 'Save the Weekend de Yara e Gustavo. Confirme sua presença para nosso fim de semana especial.',
-  generator: 'v0.app',
+  openGraph: {
+    title: 'Yara & Gustavo - Save the Weekend',
+    description: 'Save the Weekend de Yara e Gustavo. Confirme sua presença para nosso fim de semana especial.',
+    images: [{ url: '/favicon.jpg' }],
+  },
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/favicon.jpg',
+    apple: '/favicon.jpg',
   },
 }
 
