@@ -569,10 +569,13 @@
     },
     {
       "inviteId": "inv-023",
-      "inviteName": "Alberes",
+      "inviteName": "Thayná",
       "group": "Família da noiva",
       "searchTerms": [
-        "alberes"
+        "Thayná",
+        "Thaynná",
+        "Thainná",
+        "Thayna"
       ],
       "guests": [
         {
@@ -840,6 +843,29 @@
           "id": "g-062",
           "name": "Julio",
           "gender": "M",
+          "ageGroup": "Adulto"
+        }
+      ]
+    },
+    {
+      "inviteId": "inv-069",
+      "inviteName": "Thais e Geovana",
+      "group": "Amigos da noiva",
+      "searchTerms": [
+        "thais",
+        "geovana"
+      ],
+      "guests": [
+        {
+          "id": "g-068",
+          "name": "Thais",
+          "gender": "F",
+          "ageGroup": "Adulto"
+        },
+        {
+          "id": "g-069",
+          "name": "Geovana",
+          "gender": "F",
           "ageGroup": "Adulto"
         }
       ]
