@@ -19,6 +19,9 @@ import {
 import type { InviteResponse, InviteSearchResult, AttendanceOptions } from "@/types/invite";
 import { CalendarX } from "lucide-react";
 
+// Convites sem necessidade de envio de convite fisico: dispensa endereco e telefone
+const SKIP_CONTACT_INFO_INVITE_IDS = ["inv-0219"];
+
 // Data limite para confirmacao de presenca: 02/08/2026
 const RSVP_DEADLINE = new Date("2026-08-02T23:59:59");
 
@@ -193,9 +196,10 @@ export function SaveTheDateIntentPage() {
   const showAttendance = showGuestSelection && selectedGuestIds.length > 0;
   const hasDeclined = attendanceOptions.declined;
   const hasConfirmedAttendance = hasAnyAttendanceOption(attendanceOptions) && !hasDeclined;
-  const showContactInfo = showAttendance && hasConfirmedAttendance;
-  const hasContactInfo = address.trim() !== "" && phone.trim() !== "";
-  const showSummary = showContactInfo && hasContactInfo;
+  const requiresContactInfo = invite ? !SKIP_CONTACT_INFO_INVITE_IDS.includes(invite.inviteId) : true;
+  const showContactInfo = showAttendance && hasConfirmedAttendance && requiresContactInfo;
+  const hasContactInfo = requiresContactInfo ? address.trim() !== "" && phone.trim() !== "" : true;
+  const showSummary = showAttendance && hasConfirmedAttendance && hasContactInfo;
 
   // Se o prazo expirou, mostra mensagem informativa
   if (isDeadlineExpired) {
@@ -304,6 +308,7 @@ export function SaveTheDateIntentPage() {
           {/* Etapa 3: Opcoes de comparecimento */}
           {showAttendance && (
             <AttendanceSection
+              inviteId={invite.inviteId}
               options={attendanceOptions}
               onOptionChange={handleAttendanceChange}
               onActionClick={handleAttendanceAction}

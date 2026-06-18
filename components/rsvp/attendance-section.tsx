@@ -6,11 +6,15 @@ import { Label } from "@/components/ui/label";
 import type { AttendanceOptions } from "@/types/invite";
 
 interface AttendanceSectionProps {
+  inviteId?: string;
   options: AttendanceOptions;
   onOptionChange: (key: keyof AttendanceOptions, value: boolean) => void;
   onActionClick?: (action: "openHotelInfo") => void;
   error: string | null;
 }
+
+// Convites sem hospedagem: somente a opcao de cerimonia e festa deve ser exibida
+const CEREMONY_ONLY_INVITE_IDS = ["inv-0219"];
 
 type AttendanceOptionAction = {
   label: string;
@@ -57,6 +61,7 @@ const ATTENDANCE_OPTIONS: Array<{
 ];
 
 export function AttendanceSection({
+  inviteId,
   options,
   onOptionChange,
   onActionClick,
@@ -67,6 +72,11 @@ export function AttendanceSection({
     hotel: Hotel,
     decline: XCircle,
   };
+
+  const isCeremonyOnly = inviteId ? CEREMONY_ONLY_INVITE_IDS.includes(inviteId) : false;
+  const attendanceOptions = isCeremonyOnly
+    ? ATTENDANCE_OPTIONS.filter((option) => option.key !== "hotelSaturday" && option.key !== "hotelSunday")
+    : ATTENDANCE_OPTIONS;
 
   return (
     <section className="space-y-5 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -85,7 +95,7 @@ export function AttendanceSection({
       </div>
 
       <div className="space-y-3">
-        {ATTENDANCE_OPTIONS.map((option, index) => {
+        {attendanceOptions.map((option, index) => {
           const Icon = IconMap[option.icon];
           const isChecked = options[option.key];
           const isDeclineOption = option.key === "declined";

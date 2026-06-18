@@ -69,16 +69,22 @@ export function SummarySection({
           </div>
         </div>
 
-        <div className="mt-4 space-y-2">
-          <div>
-            <span className="text-xs text-muted-foreground">Endereco:</span>
-            <p className="text-sm text-primary whitespace-pre-wrap">{address}</p>
+        {(address.trim() !== "" || phone.trim() !== "") && (
+          <div className="mt-4 space-y-2">
+            {address.trim() !== "" && (
+              <div>
+                <span className="text-xs text-muted-foreground">Endereco:</span>
+                <p className="text-sm text-primary whitespace-pre-wrap">{address}</p>
+              </div>
+            )}
+            {phone.trim() !== "" && (
+              <div>
+                <span className="text-xs text-muted-foreground">Telefone:</span>
+                <p className="text-sm text-primary">{phone}</p>
+              </div>
+            )}
           </div>
-          <div>
-            <span className="text-xs text-muted-foreground">Telefone:</span>
-            <p className="text-sm text-primary">{phone}</p>
-          </div>
-        </div>
+        )}
 
         <div className="border-t border-border/30 pt-4">
           <h4 className="text-sm font-medium text-muted-foreground mb-2">
