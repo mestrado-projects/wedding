@@ -355,11 +355,12 @@
     },
     {
       "inviteId": "inv-014",
-      "inviteName": "Dona Zélia e Severino",
+      "inviteName": "Dona Zélia e Daniela",
       "group": "Amigos da noiva",
       "searchTerms": [
         "zélia",
         "zelia",
+        "daniela",
         "dona zelia",
         "severino"
       ],
@@ -372,8 +373,8 @@
         },
         {
           "id": "g-028",
-          "name": "Severino",
-          "gender": "M",
+          "name": "Daniela",
+          "gender": "F",
           "ageGroup": "Adulto"
         }
       ]
@@ -546,12 +547,44 @@
       ]
     },
     {
+      "inviteId": "inv-0219",
+      "inviteName": "Benicio, Zenilda e Mariana",
+      "group": "Amigos do noivo",
+      "phone": "48680",
+      "searchTerms": [
+        "benicio",
+        "zenilda",
+        "mariana"
+      ],
+      "guests": [
+        {
+          "id": "g-0399",
+          "name": "Benicio",
+          "gender": "M",
+          "ageGroup": "Adulto"
+        },
+        {
+          "id": "g-0398",
+          "name": "Zenilda",
+          "gender": "F",
+          "ageGroup": "Adulto"
+        },
+        {
+          "id": "g-0409",
+          "name": "Mariana",
+          "gender": "M",
+          "ageGroup": "Bebe"
+        }
+      ]
+    },
+    {
       "inviteId": "inv-022",
       "inviteName": "Maria Luisa",
       "group": "Amigos do noivo",
       "phone": "06880",
       "searchTerms": [
         "luisa",
+        "taniere",
         "luísa",
         "maria luisa",
         "bezerra",
@@ -562,6 +595,12 @@
         {
           "id": "g-042",
           "name": "Maria Luisa Bezerra",
+          "gender": "F",
+          "ageGroup": "Adulto"
+        },
+        {
+          "id": "g-0429",
+          "name": "Taniere",
           "gender": "F",
           "ageGroup": "Adulto"
         }
